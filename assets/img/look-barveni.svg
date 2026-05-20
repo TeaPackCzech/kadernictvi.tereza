@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520">
+  <defs><radialGradient id="g" cx="72%" cy="28%" r="82%"><stop stop-color="#fff3dc"/><stop offset=".45" stop-color="#b97962"/><stop offset="1" stop-color="#211715"/></radialGradient></defs>
+  <rect width="680" height="520" fill="url(#g)"/>
+  <circle cx="488" cy="140" r="96" fill="#fff8ef" opacity=".2"/>
+  <path d="M148 404c130-80 176-181 137-302 82 62 151 163 249 280" fill="none" stroke="#ffe5d0" stroke-width="12" stroke-linecap="round"/>
+  <path d="M156 134c83 127 188 206 316 236" fill="none" stroke="#2b1d18" stroke-width="5" stroke-linecap="round" opacity=".42"/>
+  <text x="38" y="72" fill="#fff8ef" font-family="Arial, sans-serif" font-size="24" font-weight="700">Fotografie salonu / proměny doplnit</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="og" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fff7ed"/>
+      <stop offset=".52" stop-color="#e5c6ac"/>
+      <stop offset="1" stop-color="#2b1d18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <path d="M768 86c-148 106-227 227-236 361-5 74 20 119 10 169" fill="none" stroke="#fff8ef" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+  <path d="M830 119c-128 95-186 198-174 310 8 74 45 116 25 176" fill="none" stroke="#9d5c45" stroke-width="8" stroke-linecap="round"/>
+  <text x="80" y="270" fill="#211715" font-size="88" font-family="Georgia, serif" font-weight="700">Kadeřnictví Tereza</text>
+  <text x="84" y="340" fill="#6b5148" font-size="32" font-family="Arial, sans-serif" font-weight="700">Vlasový ráj · Polička</text>
+  <text x="84" y="430" fill="#211715" font-size="34" font-family="Arial, sans-serif">Masarykova 192 · +420 702 194 319</text>
+</svg>

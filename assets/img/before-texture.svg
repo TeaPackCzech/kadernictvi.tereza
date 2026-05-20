@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#3c2924"/><stop offset=".5" stop-color="#7b564b"/><stop offset="1" stop-color="#c8a18a"/></linearGradient></defs>
+  <rect width="960" height="600" fill="url(#g)"/>
+  <g fill="none" stroke="#221613" stroke-linecap="round" opacity=".36">
+    <path d="M80 515C243 410 312 271 286 98" stroke-width="9"/>
+    <path d="M170 540C314 397 374 255 351 112" stroke-width="6"/>
+    <path d="M288 540C407 401 458 282 442 184" stroke-width="5"/>
+  </g>
+  <text x="56" y="92" fill="#fff8ef" font-family="Arial, sans-serif" font-size="42" font-weight="700">Před konzultací</text>
+</svg>

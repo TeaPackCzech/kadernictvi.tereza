@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 520">
+  <rect width="620" height="520" rx="24" fill="#211715"/>
+  <circle cx="452" cy="128" r="92" fill="#b97962" opacity=".28"/>
+  <path d="M354 66c-88 68-135 146-139 236-3 72 24 113 9 167" fill="none" stroke="#fff4e5" stroke-width="10" stroke-linecap="round"/>
+  <path d="M407 89c-77 62-115 134-113 215 1 69 34 105 20 151" fill="none" stroke="#b97962" stroke-width="6" stroke-linecap="round"/>
+  <path d="M130 368c98-64 200-78 307-42" fill="none" stroke="#fff4e5" stroke-width="4" stroke-linecap="round" opacity=".58"/>
+  <path d="M112 418h390" stroke="#fff4e5" stroke-width="2" opacity=".22"/>
+  <text x="88" y="126" fill="#fff4e5" font-family="Georgia, serif" font-size="44" font-weight="700">Vlasový ráj</text>
+  <text x="91" y="164" fill="#d8aa8d" font-family="Arial, sans-serif" font-size="18" font-weight="700">Kadeřnictví Tereza · Polička</text>
+</svg>
