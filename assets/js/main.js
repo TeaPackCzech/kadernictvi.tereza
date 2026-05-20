@@ -6,6 +6,7 @@ const sections = [...document.querySelectorAll("[data-section]")];
 const reveals = [...document.querySelectorAll(".reveal")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+document.body.classList.add("reveal-ready");
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
 const closeMenu = () => {

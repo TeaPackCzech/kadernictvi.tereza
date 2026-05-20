@@ -44,6 +44,8 @@ Potom otevřít `http://127.0.0.1:8097/`.
 - Odkazy na sociální sítě.
 - Případné texty k používaným značkám kosmetiky a péče.
 
-## Poznámka k obsahu
+## Poznámka k obsahu a obrázkům
 
 Web záměrně neuvádí pevný ceník ani falešné recenze. Ceny jsou formulované jako orientační podle konzultace, délky a náročnosti vlasů.
+
+Aktuální vizuály jsou realistické ilustrační fotovizuály bez identifikovatelných osob. Po dodání autentických fotografií salonu a prací je vhodné je nahradit skutečnými podklady klientky.
