@@ -10,6 +10,10 @@ document.body.classList.add("reveal-ready");
 const yearTarget = document.querySelector("[data-year]");
 if (yearTarget) yearTarget.textContent = new Date().getFullYear();
 
+window.setTimeout(() => {
+  reveals.forEach((element) => element.classList.add("is-visible"));
+}, 1400);
+
 const closeMenu = () => {
   if (!navToggle || !navMenu) return;
   navToggle.setAttribute("aria-expanded", "false");

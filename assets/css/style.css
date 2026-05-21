@@ -999,15 +999,17 @@ h3 {
   line-height: 1;
 }
 
-body.reveal-ready .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 720ms ease, transform 720ms ease;
-}
+@media (min-width: 761px) {
+  body.reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 720ms ease, transform 720ms ease;
+  }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulseGlow {
@@ -1195,6 +1197,12 @@ body.reveal-ready .reveal {
 
   .contact-actions .btn {
     width: 100%;
+  }
+
+  .reveal,
+  body.reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
   }
 
   .mobile-cta {
