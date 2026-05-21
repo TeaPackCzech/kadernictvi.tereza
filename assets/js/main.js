@@ -7,59 +7,69 @@ const reveals = [...document.querySelectorAll(".reveal")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.body.classList.add("reveal-ready");
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+const yearTarget = document.querySelector("[data-year]");
+if (yearTarget) yearTarget.textContent = new Date().getFullYear();
 
 const closeMenu = () => {
+  if (!navToggle || !navMenu) return;
   navToggle.setAttribute("aria-expanded", "false");
   navMenu.classList.remove("is-open");
   document.body.classList.remove("nav-open");
 };
 
-navToggle.addEventListener("click", () => {
-  const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-  navToggle.setAttribute("aria-expanded", String(!isOpen));
-  navMenu.classList.toggle("is-open", !isOpen);
-  document.body.classList.toggle("nav-open", !isOpen);
-});
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!isOpen));
+    navMenu.classList.toggle("is-open", !isOpen);
+    document.body.classList.toggle("nav-open", !isOpen);
+  });
+}
 
 navLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
 
-window.addEventListener("scroll", () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 28);
-}, { passive: true });
+if (header) {
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 28);
+  }, { passive: true });
+}
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  reveals.forEach((element) => {
+    if (reduceMotion) {
+      element.classList.add("is-visible");
+    } else {
+      revealObserver.observe(element);
     }
   });
-}, { threshold: 0.18 });
 
-reveals.forEach((element) => {
-  if (reduceMotion) {
-    element.classList.add("is-visible");
-  } else {
-    revealObserver.observe(element);
-  }
-});
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    navLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+      });
     });
+  }, {
+    rootMargin: "-42% 0px -50% 0px",
+    threshold: 0
   });
-}, {
-  rootMargin: "-42% 0px -50% 0px",
-  threshold: 0
-});
 
-sections.forEach((section) => sectionObserver.observe(section));
+  sections.forEach((section) => sectionObserver.observe(section));
+} else {
+  reveals.forEach((element) => element.classList.add("is-visible"));
+}
 
 const parallaxTarget = document.querySelector("[data-parallax]");
 if (parallaxTarget && !reduceMotion) {
@@ -151,25 +161,31 @@ if (baWidget) {
   setBeforeAfter(range.value);
 }
 
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
+if ("IntersectionObserver" in window) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-    const target = entry.target;
-    const end = Number(target.dataset.count);
-    let current = 0;
-    const steps = 28;
-    const interval = window.setInterval(() => {
-      current += 1;
-      target.textContent = Math.round((end / steps) * current);
-      if (current >= steps) {
-        target.textContent = end;
-        window.clearInterval(interval);
-      }
-    }, reduceMotion ? 1 : 28);
+      const target = entry.target;
+      const end = Number(target.dataset.count);
+      let current = 0;
+      const steps = 28;
+      const interval = window.setInterval(() => {
+        current += 1;
+        target.textContent = Math.round((end / steps) * current);
+        if (current >= steps) {
+          target.textContent = end;
+          window.clearInterval(interval);
+        }
+      }, reduceMotion ? 1 : 28);
 
-    countObserver.unobserve(target);
+      countObserver.unobserve(target);
+    });
   });
-});
 
-document.querySelectorAll("[data-count]").forEach((counter) => countObserver.observe(counter));
+  document.querySelectorAll("[data-count]").forEach((counter) => countObserver.observe(counter));
+} else {
+  document.querySelectorAll("[data-count]").forEach((counter) => {
+    counter.textContent = counter.dataset.count;
+  });
+}

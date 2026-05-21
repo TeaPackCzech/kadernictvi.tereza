@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
   line-height: 1.6;
   min-width: 320px;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(157, 92, 69, 0.18);
 }
 
 main {
@@ -259,6 +261,7 @@ input {
 .hero {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
   min-height: 100svh;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.82fr);
@@ -1076,7 +1079,7 @@ body.reveal-ready .reveal {
 
 @media (max-width: 760px) {
   body {
-    padding-bottom: 4.7rem;
+    padding-bottom: calc(5.2rem + env(safe-area-inset-bottom, 0px));
   }
 
   .nav-toggle,
@@ -1088,7 +1091,8 @@ body.reveal-ready .reveal {
     position: fixed;
     left: 1rem;
     right: 1rem;
-    top: 4.85rem;
+    top: calc(4.85rem + env(safe-area-inset-top, 0px));
+    z-index: 60;
     display: grid;
     gap: 0.2rem;
     padding: 1rem;
@@ -1124,15 +1128,34 @@ body.reveal-ready .reveal {
 
   .hero {
     gap: 1.8rem;
-    padding-top: 6.4rem;
+    min-height: auto;
+    padding-top: calc(5.75rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 2.2rem;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(251, 244, 234, 0.92) 0%, rgba(251, 244, 234, 0.74) 54%, rgba(251, 244, 234, 0.94) 100%),
+      url("../img/hero-salon-bg-mobile.jpg") 62% 50% / cover no-repeat;
+    filter: blur(5px);
+    transform: scale(1.02);
+  }
+
+  .hero::after {
+    background: linear-gradient(180deg, rgba(251, 244, 234, 0.1), rgba(251, 244, 234, 0.84));
   }
 
   .hero__lead {
     margin-top: 1rem;
   }
 
+  .hero-art {
+    display: none;
+  }
+
   .hero__actions .btn {
-    flex: 1 1 12rem;
+    width: 100%;
+    min-height: 3.05rem;
   }
 
   .service-grid,
@@ -1173,6 +1196,18 @@ body.reveal-ready .reveal {
   .contact-actions .btn {
     width: 100%;
   }
+
+  .mobile-cta {
+    bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    left: 0.5rem;
+    right: 0.5rem;
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-cta a {
+    min-height: 3rem;
+    font-size: 0.82rem;
+  }
 }
 
 @media (max-width: 420px) {
@@ -1209,7 +1244,6 @@ body.reveal-ready .reveal {
   .mobile-cta {
     left: 0.5rem;
     right: 0.5rem;
-    bottom: 0.5rem;
   }
 }
 
